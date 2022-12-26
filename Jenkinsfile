@@ -17,13 +17,6 @@ pipeline {
                     withSonarQubeEnv(credentialsId:'sonar-token') {
                        bat './gradlew jacocoTestReport sonar --warning-mode all'
                     }
-
-                    timeout(time:1 , unit:HOURS) {
-                        def gg = waitForQualityGate()
-                        if (gg.status != OK) {
-                            error "Pipeline aborted due to quality gate failure: ${gg.status}"
-                        }
-                    }
                 }
             }
         }
