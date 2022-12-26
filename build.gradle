@@ -18,13 +18,14 @@ sonarqube {
 	properties {
 		property 'sonar.host.url', 'http://localhost:9000'
 		property 'sonar.login', 'squ_b4a60b8449b60704bf031af848912754f83dbdfd'
+		property 'sonar.jacoco.reportPaths', '$buildDir/jacoco/jacoco.xml'
 	}
 }
 
 jacocoTestReport {
 	dependsOn test
 	reports {
-		xml.enabled(true)
+		xml.required = true
 	}
 }
 
