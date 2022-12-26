@@ -15,7 +15,7 @@ pipeline {
             steps {
                 script {
                     withSonarQubeEnv(credentialsId:'sonar-token') {
-                       bat './gradlew jacocoTestReport sonarqube --warning-mode all'
+                       bat './gradlew jacocoTestReport sonar --warning-mode all'
                     }
 
                     timeout(time:1 , unit:HOURS) {
